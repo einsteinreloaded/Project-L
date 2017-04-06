@@ -8,7 +8,7 @@ import styles from './styles.scss';
 
 const Header = () => (
   <h1 className={styles.header}>
-    ഹായ്  അനീഷ് കൂ...
+    Hello World
   </h1>
 );
 
