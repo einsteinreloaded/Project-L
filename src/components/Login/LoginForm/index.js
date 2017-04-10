@@ -3,18 +3,22 @@ import React from 'react';
 export default class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: ''};
+    this.state = {username: '', password:''};
 
-    this.handleChange = this.handleChange.bind(this);
+    this.handleUserNameChange = this.handleUserNameChange.bind(this);
+    this.handlePasswordChange = this.handlePasswordChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
+  handleUserNameChange(event) {
+    this.setState({username: event.target.value});
+  }
+   handlePasswordChange(event) {
+    this.setState({password: event.target.value});
   }
 
   handleSubmit(event) {
-    alert('A name was submitted: ' + this.state.value);
+      console.log("inside submit");
     event.preventDefault();
   }
 
@@ -22,8 +26,12 @@ export default class LoginForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <label>
-          Name:
-          <input type="text" value={this.state.value} onChange={this.handleChange} />
+          UserName:
+          <input type="text" value={this.state.username} onChange={this.handleUserNameChange} />
+        </label>
+         <label>
+          Password:
+          <input type="password" value={this.state.password} onChange={this.handlePasswordChange} />
         </label>
         <input type="submit" value="Submit" />
       </form>
