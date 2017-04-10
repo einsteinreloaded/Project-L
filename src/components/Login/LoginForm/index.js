@@ -25,14 +25,18 @@ export default class LoginForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>
-          UserName:
-          <input type="text" value={this.state.username} onChange={this.handleUserNameChange} />
-        </label>
-         <label>
-          Password:
-          <input type="password" value={this.state.password} onChange={this.handlePasswordChange} />
-        </label>
+          <div class="form-group">
+            <label for="uname">
+            UserName:
+            <input type="text" name="uname" value={this.state.username} class="form-control" onChange={this.handleUserNameChange} />
+            </label>
+        </div>
+        <div class="form-group">
+            <label for="pword">
+            Password:
+            <input type="password" name="pword" class="form-control" value={this.state.password} onChange={this.handlePasswordChange} />
+            </label>
+        </div>
         <input type="submit" value="Submit" />
       </form>
     );
