@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from 'components/Header'
-
+import Header from 'components/Header';
+import LoginForm from 'components/Login/LoginForm';
 /**
  * Will be useful to supply some common data that needs to be available for all components.
  * eg: i18n and config.
@@ -13,7 +13,10 @@ import Header from 'components/Header'
  */
 
 const App = () => (
-  <Header />
+  <div>
+    <Header />
+    <LoginForm/>
+  </div>
 );
 
 export default App;
