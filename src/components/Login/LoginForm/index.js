@@ -1,9 +1,11 @@
 import React from 'react';
+import { connect } from 'react-redux'
+import { login } from 'reducers/login';
 
-export default class LoginForm extends React.Component {
+class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: '', password:''};
+    this.state = {username: '', password:'', isloggedin: false};
 
     this.handleUserNameChange = this.handleUserNameChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -17,24 +19,33 @@ export default class LoginForm extends React.Component {
     this.setState({password: event.target.value});
   }
 
-  handleSubmit(event) {
+  handleSubmit(event,dispatch) {
       console.log("inside submit");
     event.preventDefault();
+    dispatch(login(this.state));
+    
   }
 
   render() {
+    if(this.state.isloggedin){
+      return(
+        <div>
+          <span>Hi {this.state.user}</span>
+        </div>
+      )
+    }
     return (
       <form onSubmit={this.handleSubmit}>
-          <div class="form-group">
-            <label for="uname">
+          <div className="form-group">
+            <label htmlFor="uname">
             UserName:
-            <input type="text" name="uname" value={this.state.username} class="form-control" onChange={this.handleUserNameChange} />
+            <input type="text" name="uname" value={this.state.username} className="form-control" onChange={this.handleUserNameChange} />
             </label>
         </div>
-        <div class="form-group">
-            <label for="pword">
+        <div className="form-group">
+            <label htmlFor="pword">
             Password:
-            <input type="password" name="pword" class="form-control" value={this.state.password} onChange={this.handlePasswordChange} />
+            <input type="password" name="pword" className="form-control" value={this.state.password} onChange={this.handlePasswordChange} />
             </label>
         </div>
         <input type="submit" value="Submit" />
@@ -42,3 +53,4 @@ export default class LoginForm extends React.Component {
     );
   }
 }
+export default connect()(LoginForm)
