@@ -19,12 +19,10 @@ class LoginForm extends React.Component {
     this.setState({password: event.target.value});
   }
 
-  handleSubmit(dispatch,event) {
+  handleSubmit(event) {
     console.log("inside submit");
     event.preventDefault();
-    debugger;
-    dispatch(login(this.state));
-    
+    this.props.dispatch(login(this.state));
   }
 
   render() {
