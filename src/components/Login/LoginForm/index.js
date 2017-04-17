@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
-import { login } from 'reducers/login';
+import { login } from 'reducers/login/action';
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -22,15 +22,14 @@ class LoginForm extends React.Component {
   handleSubmit(event) {
     console.log("inside submit");
     event.preventDefault();
-    this.props.dispatch(login(this.state));
+    this.props.login(this.state);
   }
 
   render() {
-    console.log(this.state);
-    if(this.state.isloggedin){
+    if(this.props.isloggedIn){
       return(
         <div>
-          <span>Hi {this.state.user}</span>
+          <span>Hi {this.props.user}</span>
         </div>
       )
     }
@@ -53,4 +52,7 @@ class LoginForm extends React.Component {
     );
   }
 }
-export default connect()(LoginForm)
+export default connect(
+  ({ user }) => ({ ...user }),
+  { login }
+)(LoginForm);

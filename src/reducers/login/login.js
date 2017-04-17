@@ -1,20 +1,15 @@
-const user = (state = [], action) => {
+const user = (state = {}, action) => {
   switch (action.type) {
     case 'LOG_IN':
-      return [
+      return {
         ...state,
-        login(undefined, action)
-      ];
+        isloggedIn:true,
+        sessionId: action.id,
+        user:action.user
+      };
     default:
       return state;
   }
 }
 
-function login(state,action) {
-  return {
-    isloggedIn:true,
-    sessionId: action.id,
-    user:action.user
-  };
-}
 export default user;
