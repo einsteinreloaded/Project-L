@@ -5,7 +5,7 @@ import { login } from 'reducers/login';
 class LoginForm extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {username: '', password:'', isloggedin: false};
+    this.state = {username: '', password:'', isloggedin: false, user: ''};
 
     this.handleUserNameChange = this.handleUserNameChange.bind(this);
     this.handlePasswordChange = this.handlePasswordChange.bind(this);
@@ -19,14 +19,16 @@ class LoginForm extends React.Component {
     this.setState({password: event.target.value});
   }
 
-  handleSubmit(event,dispatch) {
-      console.log("inside submit");
+  handleSubmit(dispatch,event) {
+    console.log("inside submit");
     event.preventDefault();
+    debugger;
     dispatch(login(this.state));
     
   }
 
   render() {
+    console.log(this.state);
     if(this.state.isloggedin){
       return(
         <div>
