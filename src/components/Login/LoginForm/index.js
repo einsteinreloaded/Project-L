@@ -52,7 +52,4 @@ class LoginForm extends React.Component {
     );
   }
 }
-export default connect(
-  ({ user }) => ({ ...user }),
-  { login }
-)(LoginForm);
+export default connect(({ user }) => ({ ...user }),{ login })(LoginForm);

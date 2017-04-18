@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Header from 'components/Header';
-import LoginForm from 'components/Login/LoginForm';
+import Header from 'containers/Header';
+import LoginContainer from 'containers/LoginContainer';
 /**
  * Will be useful to supply some common data that needs to be available for all components.
  * eg: i18n and config.
@@ -15,7 +15,7 @@ import LoginForm from 'components/Login/LoginForm';
 const App = () => (
   <div>
     <Header />
-    <LoginForm/>
+    <LoginContainer/>
   </div>
 );
 
