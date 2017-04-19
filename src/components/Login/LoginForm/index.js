@@ -1,5 +1,5 @@
 import React from 'react';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { login } from 'reducers/login/action';
 
 class LoginForm extends React.Component {
@@ -22,6 +22,7 @@ class LoginForm extends React.Component {
   handleSubmit(event) {
     console.log("inside submit");
     event.preventDefault();
+    
     this.props.login(this.state);
   }
 
