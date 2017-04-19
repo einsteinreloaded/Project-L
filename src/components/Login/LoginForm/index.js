@@ -1,6 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { login } from 'reducers/login/action';
+import axios from 'axios';
+
+const serverUrl="http://localhost:8900/?";
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -22,8 +25,14 @@ class LoginForm extends React.Component {
   handleSubmit(event) {
     console.log("inside submit");
     event.preventDefault();
+    axios.get(serverUrl+"uname="+this.state.username+"&pword="+this.state.password).then((res)=>{
+        console.log(res.data);
+        //if(data.authTokenId){
+        this.props.login({...this.state,id: res.data.authTokenId, user: res.data.firstName});
+    }).catch((err)=>{
+        console.log(err);
+    });
     
-    this.props.login(this.state);
   }
 
   render() {
