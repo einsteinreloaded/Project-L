@@ -1,4 +1,5 @@
 const user = (state = {}, action) => {
+  console.log("here");
   switch (action.type) {
     case 'LOG_IN':
       return {
