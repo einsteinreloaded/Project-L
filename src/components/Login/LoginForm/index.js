@@ -28,7 +28,8 @@ class LoginForm extends React.Component {
     axios.get(serverUrl+"uname="+this.state.username+"&pword="+this.state.password).then((res)=>{
         console.log(res.data);
         //if(data.authTokenId){
-        this.props.login({...this.state,id: res.data.authTokenId, user: res.data.firstName});
+        //this.props.login({...this.state,id: res.data.authTokenId, user: res.data.firstName});
+        this.props.dispatch(login(res.data));
     }).catch((err)=>{
         console.log(err);
     });
@@ -62,4 +63,4 @@ class LoginForm extends React.Component {
     );
   }
 }
-export default connect(({ user }) => ({ ...user }),{ login })(LoginForm);
+export default connect()(LoginForm);
