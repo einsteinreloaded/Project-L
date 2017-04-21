@@ -2,6 +2,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 module.exports = {
+  devtool: 'eval',
   entry: './src/client.js',
   output: {
     // build files into a real folder
