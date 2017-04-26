@@ -7,6 +7,7 @@ const user = (state = {}, action) => {
     case 'LOG_IN':
         if(action.id){
             console.log("logged in");
+            this.props.router.push('/home');
             return {...state, ...action, isloggedIn:true};
         }
 

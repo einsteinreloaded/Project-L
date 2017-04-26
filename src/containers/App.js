@@ -15,7 +15,6 @@ import LoginContainer from 'containers/LoginContainer';
 const App = () => (
   <div>
     <Header />
-    <LoginContainer/>
   </div>
 );
 

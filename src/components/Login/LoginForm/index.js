@@ -21,13 +21,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    if(this.props.isloggedIn){
-      return(
-        <div>
-          <span>Hi {this.props.user}</span>
-        </div>
-      )
-    }
+    
     return (
       <form onSubmit={this.handleSubmit}>
         <div className="form-group">
