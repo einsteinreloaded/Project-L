@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { login } from 'reducers/login/action';
 import LoginServices from 'services/LoginService';
-
+import { browserHistory } from 'react-router'
 
 class LoginForm extends React.Component {
   constructor(props) {
@@ -15,6 +15,9 @@ class LoginForm extends React.Component {
     LoginServices.getAuthentication(this.username.value,this.password.value).then((res)=>{
         console.log(res.data);
         this.props.login({id: res.data.authTokenId, user: res.data.firstName});
+       
+
+            browserHistory.push('/home');
     }).catch((err)=>{
         console.log(err);
     });
