@@ -4,6 +4,9 @@ const path = require('path');
 module.exports = {
   devtool: 'eval',
   entry: './src/client.js',
+  devServer: {
+    historyApiFallback: true
+  },
   output: {
     // build files into a real folder
     path: path.resolve('dist'),
@@ -11,12 +14,12 @@ module.exports = {
     // so the build files (in memory) are served from here -> localhost:8080/dist/*
     publicPath: '/dist/',
   },
-    plugins: [
-      new webpack.ProvidePlugin({
-          $: "jquery",
-          jQuery: "jquery"
-        })
-    ],
+  plugins: [
+    new webpack.ProvidePlugin({
+        $: "jquery",
+        jQuery: "jquery"
+      })
+  ],
   module: {
     loaders: [
       // loads your js OR jsx
