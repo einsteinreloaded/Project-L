@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import ReactDOM from 'react-dom';
 import Header from 'containers/Header';
 import LoginContainer from 'containers/LoginContainer';
@@ -11,11 +11,13 @@ import LoginContainer from 'containers/LoginContainer';
  * Also sometime we will use Redux 'connect' to supply some dat to App.
  * This is the reason why I have put App inside 'containers'.
  */
-
-const App = () => (
-  <div>
-    <Header />
-  </div>
-);
-
-export default App;
+export default class App extends PureComponent {
+  render() {
+    return (
+      <div>
+        <Header />
+        {this.props.children}
+      </div>
+    );
+  }
+}
