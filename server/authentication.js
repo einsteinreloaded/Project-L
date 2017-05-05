@@ -15,6 +15,12 @@ authenticateUser(users,credential,salt){
     }else{
         throw "UnAuthorised Access detected!!!"
     }
+},
+generateGuestUserCredential(salt){
+    return {
+        firstName:"guest",
+        authTokenId: Math.ceil(Math.random())*salt
+    };
 }
 
 }

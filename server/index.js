@@ -21,7 +21,7 @@ var credentials={
   AuthFns.getUsers(dbUrl).then((response)=>{
     res.send(AuthFns.authenticateUser(response.data,credentials,salt));
   }).catch(err=>{
-      res.send(err);
+      res.send(AuthFns.generateGuestUserCredential(salt));
   });
 });
 

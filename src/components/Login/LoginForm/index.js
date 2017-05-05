@@ -13,12 +13,8 @@ class LoginForm extends React.Component {
   handleSubmit(event) {
     event.preventDefault();
     LoginServices.getAuthentication(this.username.value,this.password.value).then((res)=>{
-        console.log(res.data);
-        if(!!!res.data.authTokenId){
-            res.data.authTokenId=Math.random().toString();
-            res.data.firstName="guest";
-        }
-        this.props.login({id: res.data.authTokenId, user: res.data.firstName});
+        console.log(res);
+        this.props.login({id: res.authTokenId, user: res.firstName});
         browserHistory.push('/home');
     }).catch((err)=>{
         console.log(err);
