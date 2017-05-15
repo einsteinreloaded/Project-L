@@ -18,6 +18,7 @@ var credentials={
     username: req.query.uname,
     password: req.query.pword
 }
+res.setHeader("Access-Control-Allow-Origin", "*");
   AuthFns.getUsers(dbUrl).then((response)=>{
     res.send(AuthFns.authenticateUser(response.data,credentials,salt));
   }).catch(err=>{

@@ -8,6 +8,9 @@ const user = (state = {}, action) => {
             console.log("logged in");
             return {...state, ...action, isloggedIn:true};
         }
+        break;
+    case 'FETCH_DATA':
+        return {...action};
 
     default:
       return state;
