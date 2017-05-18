@@ -10,7 +10,7 @@ const user = (state = {}, action) => {
         }
         break;
     case 'FETCH_DATA':
-        return {...action};
+        return {...state,...action};
 
     default:
       return state;
