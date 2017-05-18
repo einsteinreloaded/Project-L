@@ -15,7 +15,7 @@ render(){
             return (
                 <div>
                 {this.props.data.map((d)=>{
-                    return <div><h2>{d.title}</h2><p>{d.body}</p><br/></div>;
+                    return <div key={d.id}><h2>{d.title}</h2><p>{d.body}</p><br/></div>;
                     })}  
                 </div>
             );

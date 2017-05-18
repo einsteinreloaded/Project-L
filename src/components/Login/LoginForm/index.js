@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { login } from 'reducers/login/action';
 import LoginServices from 'services/LoginService';
@@ -41,4 +41,6 @@ class LoginForm extends React.Component {
     );
   }
 }
+
+
 export default connect(({ user }) => ({ ...user }),{ login })(LoginForm);
