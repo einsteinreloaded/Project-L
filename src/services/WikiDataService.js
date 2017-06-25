@@ -4,11 +4,10 @@ import axios from 'axios';
 
 const WikiDataServices={
     
-    getJsonData(id){
+    getJsonData(id=""){
         return axios.get(urls.jsondataUrl+'/posts/'+id).then((res)=>{
             return res.data;
         });
-
     }
  
 
