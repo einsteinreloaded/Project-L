@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 const HomePage = (props) => (
   <div>
-    <span>Hi {props.user}</span>
+    <span>Hi {props.user || "guest"}</span>
   </div>
 );
 
