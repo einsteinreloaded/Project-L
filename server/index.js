@@ -1,10 +1,10 @@
-var express = require('express'),
+let express = require('express'),
   app = express(),
   port = process.env.PORT || 8900;
-var http = require('http');
-var fs = require("fs");
+let http = require('http');
+let fs = require("fs");
 
-var AuthFns = require("./authentication.js");
+let AuthFns = require("./authentication.js");
 
 const dbUrl = "http://localhost:8900/users.json";
 const dbDirectory = "db";
@@ -14,7 +14,7 @@ const salt = 1234324235;
 app.use(express.static('db'));
 
 app.get('/', function (req, res) {
-var credentials={
+let credentials={
     username: req.query.uname,
     password: req.query.pword
 }
